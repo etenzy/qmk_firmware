@@ -70,14 +70,16 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
 #endif // ENCODER_MAP_ENABLE
 
 #if defined(KEY_OVERRIDE_ENABLE)
-const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
+const key_override_t bspc_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
+const key_override_t del_key_override = ko_make_with_layers(MOD_MASK_GUI, KC_DEL, KC_INS, 1 << MAC_BASE);
 const key_override_t left_key_override = ko_make_with_layers(MOD_MASK_GUI, KC_LEFT, KC_HOME, 1 << MAC_BASE);
 const key_override_t up_key_override = ko_make_with_layers(MOD_MASK_GUI, KC_UP, KC_PGUP, 1 << MAC_BASE);
 const key_override_t down_key_override = ko_make_with_layers(MOD_MASK_GUI, KC_DOWN, KC_PGDN, 1 << MAC_BASE);
 const key_override_t right_key_override = ko_make_with_layers(MOD_MASK_GUI, KC_RIGHT, KC_END, 1 << MAC_BASE);
 
 const key_override_t **key_overrides = (const key_override_t *[]){
-    &delete_key_override,
+    &bspc_key_override,
+    &del_key_override,
     &left_key_override,
     &up_key_override,
     &down_key_override,
